@@ -23,6 +23,81 @@ class PostEstate extends Post
 
 
     /**
+     * - Получает площадь
+     */
+    function getSquare(): string
+    {
+        return $this->getField('square');
+    }
+
+
+    /**
+     * - Получает цену
+     */
+    function getPrice(): string
+    {
+        return $this->getField('price');
+    }
+
+
+    /**
+     * - Получает адрес
+     */
+    function getAddress(): string
+    {
+        return $this->getField('address');
+    }
+
+
+    /**
+     * - Получает живую площадь
+     */
+    function getHouseroom(): string
+    {
+        return $this->getField('houseroom');
+    }
+
+
+    /**
+     * - Получает этаж
+     */
+    function getFloor(): string
+    {
+        return $this->getField('floor');
+    }
+
+
+    function getCharacteristics():  array
+    {
+        $characteristics = [];
+
+        if ($square = $this->getSquare()) {
+            $characteristics[__('Площадь')] = $square;
+        }
+
+        if ($price = $this->getPrice()) {
+            $characteristics[__('Цена')] = $price;
+        }
+
+        if ($address = $this->getAddress()) {
+            $characteristics[__('Адрес')] = $address;
+        }
+
+        if ($houseroom = $this->getSquare()) {
+            $characteristics[__('Живая площадь')] = $houseroom;
+        }
+
+        if ($floor = $this->getFloor()) {
+            $characteristics[__('Этаж')] = $floor;
+        }
+
+        return $characteristics;
+    }
+
+
+
+
+    /**
      * - Получает активные недвижемости
      * @return self[]
      */
