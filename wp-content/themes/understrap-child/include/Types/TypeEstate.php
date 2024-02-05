@@ -3,6 +3,7 @@
 namespace Vnet\Types;
 
 use Vnet\Constants\PostTypes;
+use Vnet\Constants\Taxonomies;
 
 class TypeEstate extends PostType
 {
@@ -18,7 +19,8 @@ class TypeEstate extends PostType
             'label' => 'Недвижимость',
             'has_archive' => false,
             'exclude_from_search' => false,
-            'supports' => ['title', 'thumbnail']
+            'supports' => ['title', 'thumbnail'],
+            'taxonomies' => [Taxonomies::ESTATE_TYPE]
         ]);
     }
 }
