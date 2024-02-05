@@ -11,4 +11,5 @@ require_once __DIR__ . '/vendor/autoload.php';
 
     ->setup();
 
-\Vnet\Types\TypeEstate::getInstance()->setup();    
+\Vnet\Types\TypeEstate::getInstance()->setup(); 
+\Vnet\Types\TypeCity::getInstance()->setup();     
