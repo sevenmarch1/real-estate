@@ -1,0 +1,11 @@
+{
+    "name": "andrew/understrap",
+    "autoload": {
+        "psr-4": {
+            "Vnet\\": "include/"
+        }
+    },
+    "require": {
+        "rakit/validation": "^1.4"
+    }
+}
