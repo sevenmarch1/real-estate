@@ -13,6 +13,7 @@ class TypeCity extends PostType
     function setup()
     {
         $this->menuAwesomeIco('f64f');
+        $this->menuColorOrange();
 
         $this->register([
             'label' => 'Города',

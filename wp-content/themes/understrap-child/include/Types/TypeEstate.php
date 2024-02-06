@@ -14,6 +14,7 @@ class TypeEstate extends PostType
     function setup()
     {
         $this->menuAwesomeIco('f1ad');
+        $this->menuColorOrange();
 
         $this->register([
             'label' => 'Недвижимость',
