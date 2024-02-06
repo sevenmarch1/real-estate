@@ -14,7 +14,7 @@ $estates = $city->getEstates();
             </div>
             <?php if (!empty($estates)) { ?>
                 <div class="bg-white box-shadow mx-auto" style="width: 50%; border-radius: 21px 21px 0 0;">
-                    <h5 class="display-5">Объекты недвижимости в этом городе:</h5>
+                    <h5 class="display-5"><?= __('Объекты недвижимости в этом городе:'); ?></h5>
                     <div class="list-group">
                         <?php foreach ($estates as $item) { ?>
                             <a href="<?= $item->getPermalink(); ?>" class="list-group-item list-group-item-action"><?= $item->getTitle(); ?></a>

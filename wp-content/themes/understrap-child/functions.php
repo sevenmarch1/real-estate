@@ -5,6 +5,12 @@ require_once __DIR__ . '/vendor/autoload.php';
 \Vnet\Loader::getInstance()
     ->setTimeZone()
 
+
+    ->setMessages([
+        'serverError' => __("Произошла серверная ошибка."),
+    ])
+
+
     ->setJquerySrc('assets/jquery3/jquery3.min.js')
 
     ->addAdminStyle('admin-index', THEME_URI . 'assets/css/admin.index.css')
