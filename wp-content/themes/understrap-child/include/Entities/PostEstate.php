@@ -5,7 +5,7 @@ namespace Vnet\Entities;
 use Vnet\Cache;
 use Vnet\Constants\Cache as ConstantsCache;
 use Vnet\Constants\PostTypes;
-
+use Vnet\Constants\Taxonomies;
 
 class PostEstate extends Post
 {
@@ -67,7 +67,20 @@ class PostEstate extends Post
     }
 
 
-    function getCharacteristics():  array
+
+    /**
+     * - Получает типы
+     */
+    function getTypes()
+    {
+        $types = get_the_terms($this->getId(), Taxonomies::ESTATE_TYPE);
+
+        return $types;
+    }
+
+
+
+    function getCharacteristics(): array
     {
         $characteristics = [];
 

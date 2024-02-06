@@ -1,7 +1,6 @@
 <?php
 
 use Vnet\Theme\Template;
-use Vnet\Helpers\Constant;
 
 get_header();
 
