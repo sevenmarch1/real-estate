@@ -4,6 +4,7 @@ use Vnet\Entities\PostEstate;
 
 $estate = PostEstate::getCurrent();
 $types = $estate->getTypes();
+$characteristics = $estate->getCharacteristics();
 ?>
 <section class="section-single-estate">
     <div class="container">
@@ -16,12 +17,12 @@ $types = $estate->getTypes();
                 <?php }
                 } ?>
             </div>
-            <div class="bg-white box-shadow mx-auto" style="width: 50%; height: 300px; border-radius: 21px 21px 0 0;">
+            <div class="bg-white box-shadow mx-auto" style="width: 50%; border-radius: 21px 21px 0 0;">
                 <?php if ($src = $estate->getImage('full')) { ?>
                     <img class="card-img-top" src="<?= $src; ?>" alt="img">
                 <?php } ?>
             </div>
-            <?php if ($characteristics = $estate->getCharacteristics()) { ?>
+            <?php if ($characteristics) { ?>
                 <ul class="list-group">
                     <?php foreach ($characteristics as $key => $value) { ?>
                         <li class="list-group-item"><strong><?= $key; ?></strong> : <?= $value; ?></li>

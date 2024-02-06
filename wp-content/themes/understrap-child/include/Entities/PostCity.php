@@ -23,7 +23,39 @@ class PostCity extends Post
 
 
     /**
-     * - Получает активные недвижемости
+     * - Получает недвижимости
+     */
+    function getEstates()
+    {
+        $estates = [];
+
+        $checked = get_post_meta($this->getId(), 'relation_estates', true);
+
+        if (!$checked) {
+            return $estates;
+        }
+
+        $checked = unserialize($checked);
+        foreach ($checked as $item) {
+
+            if(count($estates) == 10){
+                break;
+            }
+
+            $estate = PostEstate::getById($item);
+            if (!$estate) {
+                continue;
+            }
+
+            $estates[] = $estate;
+        }
+       
+        return  $estates;
+    }
+
+
+    /**
+     * - Получает активные города
      * @return self[]
      */
     static function getActive(int $perPage = -1): array
