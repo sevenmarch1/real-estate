@@ -48,13 +48,13 @@ class Admin
 
     static function save_city_metabox()
     {
-        $id = $_POST['ID'];
+        $id = isset($_POST['ID']) ? $_POST['ID'] : false;
         if (isset($_POST['estates'])) {
             $data =  serialize($_POST['estates']);
             update_post_meta($id, 'relation_estates',  $data);
         } else {
             if (get_post_meta($id, 'relation_estates', true)) {
-                update_post_meta($id, 'relation_estates',  ''); 
+                update_post_meta($id, 'relation_estates',  '');
             }
         }
     }

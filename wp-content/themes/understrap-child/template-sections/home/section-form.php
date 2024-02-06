@@ -39,7 +39,7 @@ use Vnet\Ajax\Forms;
                 </div>
                 <div class="form-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="file" accept=".jpeg,.png" />
+                        <input type="file" class="custom-file-input" name="file" accept=".jpg,.png" />
                         <label class="custom-file-label" for="file"><?= __('Добавте изображение'); ?></label>
                     </div>
                 </div>
