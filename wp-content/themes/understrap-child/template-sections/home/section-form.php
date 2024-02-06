@@ -8,7 +8,7 @@ use Vnet\Ajax\Forms;
     </div>
     <div class="album py-5">
         <div class="container">
-            <form data-ajax-url="<?= Forms::getInstance()->getUrl('sendEstate') ?>">
+            <form class="estateForm" data-ajax-url="<?= Forms::getInstance()->getUrl('sendEstate') ?>">
                 <div class="form-group">
                     <label for="title"><?= __('Название'); ?></label>
                     <input type="text" class="form-control" name="title" placeholder="<?= __('Название'); ?>" required>

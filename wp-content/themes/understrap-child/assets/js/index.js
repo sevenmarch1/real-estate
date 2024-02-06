@@ -2,12 +2,12 @@ $(document).ready(function () {
 
   bsCustomFileInput.init();
 
-  $("form").submit(function (event) {
+  $(".estateForm").submit(function (event) {
     event.preventDefault();
     
     var formData = new FormData(this);
 
-    var ajaxurl = $("form").data('ajax-url');
+    var ajaxurl = $(".estateForm").data('ajax-url');
     $.ajax({
       type: "POST",
       url: ajaxurl,
