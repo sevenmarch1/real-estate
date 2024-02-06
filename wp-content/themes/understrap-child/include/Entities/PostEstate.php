@@ -80,6 +80,9 @@ class PostEstate extends Post
 
 
 
+    /**
+     * - Получает характеристики
+     */
     function getCharacteristics(): array
     {
         $characteristics = [];
@@ -109,7 +112,6 @@ class PostEstate extends Post
 
 
 
-
     /**
      * - Получает активные недвижемости
      * @return self[]
@@ -123,5 +125,26 @@ class PostEstate extends Post
 
             return parent::getPublished($args);
         });
+    }
+
+
+    /**
+     * - Создает запись
+     */
+    static function create($title, $data)
+    {
+        $newPost = [
+            'post_title' => $title,
+            'post_type' => self::$postType,
+            'post_status' => 'draft',
+        ];
+
+        $postId = wp_insert_post($newPost);
+
+        foreach ($data as $key => $item) {
+            update_field($key, $item, $postId);
+        }
+
+        return $postId;
     }
 }

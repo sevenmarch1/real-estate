@@ -7,6 +7,7 @@ $(document).ready(function () {
       houseroom: $("#houseroom").val(),
       floor: $("#floor").val(),
       address: $("#address").val(),
+      title: $("#title").val(),
     };
 
     var ajaxurl = $("form").data('ajax-url');
