@@ -21,6 +21,12 @@ class Forms extends Core
         $floor = ArrayHelper::getRequest('floor');
         $address = ArrayHelper::getRequest('address');
 
+        $file = false;
+
+        if(isset($_FILES['file']) && !empty($_FILES['file']['name'])){
+            $file = $_FILES['file'];
+        }
+
         $data = [
             'square' => $square,
             'price' => $price,
@@ -29,7 +35,7 @@ class Forms extends Core
             'address' => $address,
         ];
 
-        $postId = PostEstate::create($title, $data);
+        $postId = PostEstate::create($title, $data, $file);
 
         if(!$postId){
             $this->theError();

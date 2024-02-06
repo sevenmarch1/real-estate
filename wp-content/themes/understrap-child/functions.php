@@ -17,6 +17,7 @@ require_once __DIR__ . '/vendor/autoload.php';
     ->addAdminScript('admin-index', THEME_URI . 'assets/js/admin.index.js')
 
     ->addFrontScript('theme-index', THEME_URI . 'assets/js/index.js')
+    ->addFrontScript('assets-index', THEME_URI . 'assets/js/assets.js')
 
     ->setup();
 

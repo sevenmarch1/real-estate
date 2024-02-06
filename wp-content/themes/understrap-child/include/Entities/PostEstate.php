@@ -131,7 +131,7 @@ class PostEstate extends Post
     /**
      * - Создает запись
      */
-    static function create($title, $data)
+    static function create($title, $data, $file = false)
     {
         $newPost = [
             'post_title' => $title,
@@ -145,6 +145,13 @@ class PostEstate extends Post
             update_field($key, $item, $postId);
         }
 
+        if ($file) {
+            require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+            require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+            require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+            $attachId = media_handle_upload('file', $postId);
+            update_post_meta($postId, '_thumbnail_id', $attachId);
+        }
         return $postId;
     }
 }

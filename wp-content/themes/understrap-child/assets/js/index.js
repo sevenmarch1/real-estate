@@ -1,14 +1,11 @@
 $(document).ready(function () {
-  $("form").submit(function (event) {
 
-    var formData = {
-      square: $("#square").val(),
-      price: $("#price").val(),
-      houseroom: $("#houseroom").val(),
-      floor: $("#floor").val(),
-      address: $("#address").val(),
-      title: $("#title").val(),
-    };
+  bsCustomFileInput.init();
+
+  $("form").submit(function (event) {
+    event.preventDefault();
+    
+    var formData = new FormData(this);
 
     var ajaxurl = $("form").data('ajax-url');
     $.ajax({
@@ -16,7 +13,8 @@ $(document).ready(function () {
       url: ajaxurl,
       data: formData,
       dataType: "json",
-      encode: true,
+      processData: false, 
+      contentType: false,
     }).done(function (response) {
       $("form").html(
         '<div class="alert alert-success">' + response.message + "</div>"
@@ -27,6 +25,6 @@ $(document).ready(function () {
       );
     });
 
-    event.preventDefault();
+
   });
 });
