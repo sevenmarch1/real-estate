@@ -16,7 +16,7 @@ class Admin
     function setup(): self
     {
         add_action('add_meta_boxes', [__CLASS__, 'add_city_metabox']);
-
+        add_action('save_post_city', [__CLASS__,  'save_city_metabox']);
         return $this;
     }
 
@@ -32,7 +32,30 @@ class Admin
 
     static function display_city_metabox($post)
     {
+        $id = $post->ID;
+
+        $estatesMeta = get_post_meta($id, 'relation_estates', true);
+        if ($estatesMeta) {
+            $checked = unserialize($estatesMeta);
+        } else {
+            $checked = [];
+        }
+
         $estates = PostEstate::getActive();
-        Template::theTemplate('admin/estates-select', ['estates' => $estates]);
+        Template::theTemplate('admin/estates-select', ['estates' => $estates, 'checked' => $checked]);
+    }
+
+
+    static function save_city_metabox()
+    {
+        $id = $_POST['ID'];
+        if (isset($_POST['estates'])) {
+            $data =  serialize($_POST['estates']);
+            update_post_meta($id, 'relation_estates',  $data);
+        } else {
+            if (get_post_meta($id, 'relation_estates', true)) {
+                update_post_meta($id, 'relation_estates',  ''); 
+            }
+        }
     }
 }
